@@ -1,0 +1,8 @@
+Golang
+
+Golang函数的return value不是原子操作，而是在编译器中分解为两部分，返回值赋值和return。而defer刚好被插入到末尾的return前执行。所以可以在defer函数中修改函数的返回值。
+
+单个chan如果无缓冲的时候，将会阻塞。当结合select可以在多个chan间等待执行。有三点原则：
+1.select中只要有一个case能return，则立即执行。
+2.当同一时间有多个case均能return，则伪随机方式抽取任意一个执行。
+3.如果没有一个case能return则可以执行default语句。
