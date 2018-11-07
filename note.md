@@ -30,3 +30,6 @@ sync.Map
 
 
 
+gorm
+	gorm的update语句当用结构体更新的时候，当结构体要更新的值是“”（空字符串）、或者0，或者false。就什么都不会更新。需要用到其它更新语句updateColumn，或者直接用sql语句，加个判断，假如是“”、0、false就额外操作。
+
